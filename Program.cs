@@ -2,26 +2,6 @@
 {
     internal class Program
     {
-        public class Person
-        {
-            public string firstName;
-            public string lastName;
-            public void fullName()
-            {
-                Console.WriteLine($"My name is {firstName} {lastName}");
-            }
-        }
-        public class Calculator
-        {
-            public int Add(int a, int b)
-            {
-                return a + b;
-            }
-            public int Sub(int a, int b)
-            {
-                return a - b;
-            }
-        }
         static void Main(string[] args)
         {
             Calculator calculate = new Calculator();
