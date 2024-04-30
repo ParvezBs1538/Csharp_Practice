@@ -7,19 +7,20 @@ namespace PracticeAPp
 {
     internal class Program
     {
-        public enum Status
-        {
-
-            ongoing,
-            delivery,
-            payment
-        }
         static void Main(string[] args)
         {
-            var x = Status.ongoing;
-            Console.WriteLine((int)Status.payment);
-            Console.WriteLine((Status)1);
-            Console.WriteLine(x.ToString());
+            int[][] jarr = new int[2][];
+            jarr[0] = new int[3] { 1, 2, 3 };
+            jarr[1] = new int[5] { 1, 2, 3, 4, 5};
+
+            for (int i = 0; i < jarr.Length; i++)
+            {
+                for (int j = 0; j < jarr[i].Length; j++)
+                {
+                    Console.Write(jarr[i][j] + " ");
+                }
+                Console.WriteLine();
+            }
         }
     }
 }
