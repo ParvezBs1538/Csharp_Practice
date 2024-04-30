@@ -4,17 +4,21 @@
     {
         static void Main(string[] args)
         {
-            int id = 1538;
-            float floatNumber = 3.5f;
-            decimal decimalNumber = 3.5m;
-            string name = "Masud Parvez";
-            bool isOk = true;
+            // string to int
+            string s = "123";
+            int x = int.Parse(s);
+            Console.WriteLine(x);
 
-            Console.WriteLine(id);
-            Console.WriteLine(name);
-            Console.WriteLine(floatNumber * 2);
-            Console.WriteLine(floatNumber * 2);
-            Console.WriteLine(isOk);
+            // int to string
+            int num = 123;
+            string ss = num.ToString();
+            Console.WriteLine(ss);
+
+            //float to int
+            float f = 3.5f;
+            int y = (int)f;
+            Console.WriteLine(y);
+
         }
     }
 }
