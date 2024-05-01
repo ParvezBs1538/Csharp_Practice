@@ -7,21 +7,21 @@ namespace PracticeAPp
 {
     internal class Program
     {
+        internal class GenCls<T>
+        {
+            public void GetData(T data) 
+            {
+                Console.WriteLine(data);
+            }
+        }
         static void Main(string[] args)
         {
-            int[] a = new int[] { 1, 2, 3, 1};
-            int ind = Array.IndexOf(a, 1);
-            int ind1 = Array.LastIndexOf(a, 1);
-            Console.WriteLine($"{ind} {ind1}");
+            GenCls<string> genString = new GenCls<string>();
+            genString.GetData("Hello World");
 
-            string s = "Parvez";
-            Console.WriteLine(s.ToUpper());
-            Console.WriteLine(s.IndexOf('a')); // first index of a
-            Console.WriteLine(s.Substring(1)); // startIndex
-            Console.WriteLine(s.Substring(1, 3)); // startIndex, Length
-
-            string ss = s.Replace("par", "Masud"); // replace method
-            Console.WriteLine(ss);
+            GenCls<int> genInt = new GenCls<int>();
+            genInt.GetData(35);
         }
     }
 }
+// A generic class is a class that can work with any data type
