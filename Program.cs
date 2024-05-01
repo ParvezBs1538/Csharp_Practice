@@ -9,24 +9,19 @@ namespace PracticeAPp
     {
         static void Main(string[] args)
         {
-            // number input
-            Console.Write("Enter a number input : ");
-            int n = int.Parse(Console.ReadLine());
-            Console.WriteLine(n);
+            int[] a = new int[] { 1, 2, 3, 1};
+            int ind = Array.IndexOf(a, 1);
+            int ind1 = Array.LastIndexOf(a, 1);
+            Console.WriteLine($"{ind} {ind1}");
 
-            // array input
-            Console.Write("Enter Array input : ");
-            int[] a = Array.ConvertAll(Console.ReadLine().Split(), int.Parse);
-            foreach (int i in a)
-            {
-                Console.Write(i + " ");
-            }
-            Console.WriteLine();
+            string s = "Parvez";
+            Console.WriteLine(s.ToUpper());
+            Console.WriteLine(s.IndexOf('a')); // first index of a
+            Console.WriteLine(s.Substring(1)); // startIndex
+            Console.WriteLine(s.Substring(1, 3)); // startIndex, Length
 
-            // string input
-            Console.Write("Enter a string : ");
-            string s = Console.ReadLine();
-            Console.WriteLine(s);
+            string ss = s.Replace("par", "Masud"); // replace method
+            Console.WriteLine(ss);
         }
     }
 }
