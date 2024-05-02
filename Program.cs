@@ -7,21 +7,19 @@ namespace PracticeAPp
 {
     internal class Program
     {
-        internal class GenCls<T>
-        {
-            public void GetData(T data) 
-            {
-                Console.WriteLine(data);
-            }
-        }
         static void Main(string[] args)
         {
-            GenCls<string> genString = new GenCls<string>();
-            genString.GetData("Hello World");
+            HashSet<int> set = new HashSet<int>() { 1, 3, 3};
 
-            GenCls<int> genInt = new GenCls<int>();
-            genInt.GetData(35);
+            HashSet<int> set1 = new HashSet<int>() { 1, 2, 3, 4 };
+
+            set.IntersectWith(set1);
+            set.UnionWith(set1);
+
+            foreach (int i in set)
+            {
+                Console.WriteLine(i);
+            }
         }
     }
 }
-// A generic class is a class that can work with any data type
