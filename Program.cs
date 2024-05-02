@@ -9,25 +9,30 @@ namespace PracticeAPp
     {
         static void Main(string[] args)
         {
-            LinkedList<int> list = new LinkedList<int>();
-            list.AddFirst(2);
-            list.AddFirst(3);
+            Dictionary<int, string> mp = new Dictionary<int, string>();
+            mp.Add(2, "Two");
+            mp.Add(1, "One");
+            mp.Add(3, "Three");
 
-            var first = list.First;
-            list.AddAfter(first, 5);
-            list.AddBefore(first, 6);
-
-            foreach (int i in list)
+            foreach (var item in mp)
             {
-                Console.Write(i + " ");
+                Console.WriteLine($"{item.Key} - {item.Value}");
             }
             Console.WriteLine();
 
-            var node = list.First;
-            while(node != null)
+            // assending order sort ordery by key
+            var sortAsc = mp.OrderBy(x => x.Key);
+            foreach (var item in sortAsc)
             {
-                Console.Write(node.Value + " ");
-                node = node.Next;
+                Console.WriteLine($"{item.Key} - {item.Value}");
+            }
+            Console.WriteLine();
+
+            // descending order sort ordery by key
+            var sortDsc = mp.OrderByDescending(x => x.Key);
+            foreach (var item in sortDsc)
+            {
+                Console.WriteLine($"{item.Key} - {item.Value}");
             }
         }
     }
