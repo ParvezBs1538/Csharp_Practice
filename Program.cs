@@ -9,16 +9,25 @@ namespace PracticeAPp
     {
         static void Main(string[] args)
         {
-            HashSet<int> set = new HashSet<int>() { 1, 3, 3};
+            LinkedList<int> list = new LinkedList<int>();
+            list.AddFirst(2);
+            list.AddFirst(3);
 
-            HashSet<int> set1 = new HashSet<int>() { 1, 2, 3, 4 };
+            var first = list.First;
+            list.AddAfter(first, 5);
+            list.AddBefore(first, 6);
 
-            set.IntersectWith(set1);
-            set.UnionWith(set1);
-
-            foreach (int i in set)
+            foreach (int i in list)
             {
-                Console.WriteLine(i);
+                Console.Write(i + " ");
+            }
+            Console.WriteLine();
+
+            var node = list.First;
+            while(node != null)
+            {
+                Console.Write(node.Value + " ");
+                node = node.Next;
             }
         }
     }
