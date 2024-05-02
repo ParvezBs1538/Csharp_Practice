@@ -5,30 +5,28 @@ using System.Text;
 using System.Threading.Tasks;
 namespace PracticeAPp
 {
-    public class Student
+    class Student
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Address { get; set; }
-    }
-    public static class Extension
-    {
-        public static string GetInfo(this Student Student) // first parameter include this keyword
-        {
-            return "ID: " + Student.Id + " Name: " + Student.Name + " Address: " + Student.Address;
-        }
+        public string Name { get; set;}
+        public string RegNo { get; set; }
     }
     internal class Program
     {
+        public delegate int CalculatorHandler(int num1, int num2);
         static void Main(string[] args)
         {
-            Student Student = new Student();
-            Student.Id = 101;
-            Student.Name = "Parvez";
-            Student.Address = "Mirpur";
+            Student student = new Student();
+            CalculatorHandler calculatorHandler = Add;
+            //CalculatorHandler calculatorHandler = new CalculatorHandler(Add);
 
-            string info = Student.GetInfo();
-            Console.WriteLine(info);
+            //int result = calculatorHandler.Invoke(12, 40);
+            int result = calculatorHandler(12, 40);
+            Console.WriteLine(result);
+        }
+        static int Add(int firstNumber, int secondNumber)
+        {
+            return firstNumber + secondNumber;
         }
     }
 }
