@@ -6,44 +6,39 @@ using System.Text;
 using System.Threading.Tasks;
 namespace PracticeAPp
 {
-    // Generic Class
-    public class Comparison<T>
-    {
-        public bool isEqual(T val1, T val2)
-        {
-            return val1.Equals(val2);
-        }
-    }
-    // Generic Method
-    public class Comparison
-    {
-        public bool isEqual<T>(T val1, T val2)
-        {
-            return val1.Equals(val2);
-        }
-    }
     class Program
     {
         static void Main(string[] args)
         {
-            // Use Generic Class
-            Comparison<int> comp1 = new Comparison<int>();
-            bool isEqual1 = comp1.isEqual(2, 2);
-
-            Comparison<string> comp2 = new Comparison<string>();
-            bool ieEqual2 = comp2.isEqual("Name", "name");
-
-            Console.WriteLine(isEqual1 + " " + ieEqual2);
-
-
-            // Use Generic Method
-            Comparison comp3 = new Comparison();
-            bool isEqual3 = comp3.isEqual<int>(2, 3);
-
-            Comparison comp4 = new Comparison();
-            bool isEqual4 = comp4.isEqual<string>("ID", "ID");
-
-            Console.WriteLine(isEqual3 + " " + isEqual4);
+            //object[] arr = new object[] { 2, 1, 3, 5, 4 };
+            object[] arr = new object[] {"par", "vez", "abc", "saif"};
+            SortArray obj = new SortArray();
+            obj.BubbleSort(arr);
+            foreach (var it in arr)
+                Console.Write(it + " ");
+        }
+    }
+    public class SortArray
+    {
+        public void BubbleSort(object[] arr)
+        {
+            int n = arr.Length;
+            for (int i = 0; i < n-1; i++)
+            {
+                for (int j = 0; j < n-i-1; j++)
+                {
+                    if (((IComparable)arr[j]).CompareTo(arr[j+1]) > 0)
+                    {
+                        Swap(arr, j);
+                    }
+                }
+            }
+        }
+        private void Swap(object[] arr, int i)
+        {
+            object tmp = arr[i];
+            arr[i] = arr[i + 1];
+            arr[i + 1] = tmp;
         }
     }
 }
