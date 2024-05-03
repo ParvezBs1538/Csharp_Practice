@@ -1,32 +1,39 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 namespace PracticeAPp
 {
-    class Student
+    public interface IDrawable
     {
-        public int Id { get; set; }
-        public string Name { get; set;}
-        public string RegNo { get; set; }
+        void draw();
     }
-    internal class Program
+    public class Rectangle : IDrawable
     {
-        public delegate int CalculatorHandler(int num1, int num2);
+        public void draw()
+        {
+            Console.WriteLine("Drawing Rectangle.");
+        }
+    }
+    public class Circle : IDrawable
+    {
+        public void draw()
+        {
+            Console.WriteLine("Drawing Circle.");
+        }
+    }
+    class Program
+    {
         static void Main(string[] args)
         {
-            Student student = new Student();
-            CalculatorHandler calculatorHandler = Add;
-            //CalculatorHandler calculatorHandler = new CalculatorHandler(Add);
+            IDrawable obj;
+            obj = new Rectangle();
+            obj.draw();
 
-            //int result = calculatorHandler.Invoke(12, 40);
-            int result = calculatorHandler(12, 40);
-            Console.WriteLine(result);
-        }
-        static int Add(int firstNumber, int secondNumber)
-        {
-            return firstNumber + secondNumber;
+            obj = new Circle();
+            obj.draw();
         }
     }
 }
