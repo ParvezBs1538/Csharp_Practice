@@ -6,34 +6,44 @@ using System.Text;
 using System.Threading.Tasks;
 namespace PracticeAPp
 {
-    public interface IDrawable
+    // Generic Class
+    public class Comparison<T>
     {
-        void draw();
-    }
-    public class Rectangle : IDrawable
-    {
-        public void draw()
+        public bool isEqual(T val1, T val2)
         {
-            Console.WriteLine("Drawing Rectangle.");
+            return val1.Equals(val2);
         }
     }
-    public class Circle : IDrawable
+    // Generic Method
+    public class Comparison
     {
-        public void draw()
+        public bool isEqual<T>(T val1, T val2)
         {
-            Console.WriteLine("Drawing Circle.");
+            return val1.Equals(val2);
         }
     }
     class Program
     {
         static void Main(string[] args)
         {
-            IDrawable obj;
-            obj = new Rectangle();
-            obj.draw();
+            // Use Generic Class
+            Comparison<int> comp1 = new Comparison<int>();
+            bool isEqual1 = comp1.isEqual(2, 2);
 
-            obj = new Circle();
-            obj.draw();
+            Comparison<string> comp2 = new Comparison<string>();
+            bool ieEqual2 = comp2.isEqual("Name", "name");
+
+            Console.WriteLine(isEqual1 + " " + ieEqual2);
+
+
+            // Use Generic Method
+            Comparison comp3 = new Comparison();
+            bool isEqual3 = comp3.isEqual<int>(2, 3);
+
+            Comparison comp4 = new Comparison();
+            bool isEqual4 = comp4.isEqual<string>("ID", "ID");
+
+            Console.WriteLine(isEqual3 + " " + isEqual4);
         }
     }
 }
